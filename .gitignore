@@ -1,0 +1,24 @@
+# Virtual environment (regenerate with: pip install -r requirements.txt)
+.venv/
+venv/
+
+# Secrets — never commit real credentials
+.env
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Vector DB / generated data (regenerable output)
+data/processed/
+chroma/
+*.sqlite3
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
