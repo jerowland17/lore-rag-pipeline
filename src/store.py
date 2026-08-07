@@ -11,9 +11,14 @@ def store_chunks(embedded: list[dict], persist_dir: str = "data/processed/chroma
     embeddings = []
     metadatas = []
 
-    for i, chunk in enumerate(embedded):
+    counts = {}
 
-        ids.append(f"{chunk['source']}-{i}")
+    for chunk in embedded:
+        source = chunk["source"]
+        index = counts.get(source, 0)
+        counts[source] = index + 1
+
+        ids.append(f"{source}-{index}")
         documents.append(chunk["text"])
         embeddings.append(chunk["embedding"].tolist())
 

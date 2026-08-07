@@ -1,5 +1,8 @@
 import chromadb
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
+
+load_dotenv()
 
 def retrieve(question: str, n_results: int = 3, where: dict | None = None,
              persist_dir: str = "data/processed/chroma",
@@ -10,10 +13,6 @@ def retrieve(question: str, n_results: int = 3, where: dict | None = None,
     `n_results` chunks as:
     [{"text": ..., "metadata": {...}, "distance": 0.42}, ...]
     """
-    # 1. load model, encode the question
-    # 2. open client + collection
-    # 3. results = collection.query(...)
-    # 4. loop and build the output list
 
     model = SentenceTransformer(model_name)
     vector = model.encode(question)
